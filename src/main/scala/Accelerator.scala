@@ -49,7 +49,7 @@ class Accelerator extends Module {
     is (read)
     {
       when (xReg >= 0.S(32.W) && xReg < 20.S(32.W) && yReg >= 0.S(32.W) && yReg < 20.S(32.W)) {
-        io.address := yReg * 20.S(32.W) + xReg
+        io.address := (yReg * 20.S(32.W) + xReg).asUInt()
         dataReg := io.dataRead
       } .otherwise {
         dataReg := 0.U(32.W)
